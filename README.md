@@ -1,6 +1,9 @@
-# OctoPrint-Threedpcui
+# OctoPrint-3DPC-UI
 
-**TODO:** Describe what your plugin does.
+3DPC Project - User Interface Plugin for OctoPrint
+
+- 3DPC Project : [https://herve-perchec.fr/projects/3dpc](https://herve-perchec.fr/projects/3dpc)
+- OctoPrint : [https://github.com/foosel/OctoPrint](https://github.com/foosel/OctoPrint)
 
 ## Setup
 
@@ -9,9 +12,23 @@ or manually using this URL:
 
     https://github.com/herveperchec/OctoPrint-3DPC-UI/archive/master.zip
 
-**TODO:** Describe how to install your plugin, if more needs to be done than just installing it via pip or through
-the plugin manager.
 
 ## Configuration
 
-**TODO:** Describe your plugin's configuration options (if any).
+**TODO:** 
+
+## Development
+
+Supposing OctoPrint is running (or run it with the command 'octoprint serve')
+
+```bash
+cd octoprint_threedpc_ui
+npm run dev
+```
+
+## Build
+
+```bash
+cd octoprint_threedpc_ui
+npm run build
+```
