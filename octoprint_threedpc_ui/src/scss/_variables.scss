@@ -1,0 +1,72 @@
+// Main colors
+$ms-dark: #191919;
+$ms-secondary-dark: #262626;
+$ms-third-dark: #3D373A;
+$ms-grey: #6B6166;
+$ms-blue: rgb(135, 206, 235);
+$ms-red: #A9330D;
+$ms-light: #FAFAFA;
+
+$theme-colors: (
+    "primary":    $ms-dark,
+    "secondary":  $ms-secondary-dark,
+    "third":      $ms-third-dark,
+    "action":     $ms-blue,
+    // "success":    $success,
+    // "info":       $info,
+    "warning":    #F54C14,
+    "danger":     $ms-red,
+    "light":      $ms-light,
+    "dark":       $ms-dark
+);
+
+// Measures
+$unit-0: 0;
+$unit-1: 6px;
+$unit-2: 12px;
+$unit-3: 24px;
+$unit-4: 48px;
+
+// Default padding value
+$p-1: $unit-1;
+$p-2: $unit-2;
+$p-3: $unit-3;
+$p-4: $unit-4;
+
+// Fonts
+$helvetica-font: Helvetica, sans-serif;
+
+// Overwrite bootstrap variables
+
+$font-family-sans-serif: $helvetica-font;
+
+$font-size-base: 1rem;                              // 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25;              // $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * .875;              // $font-size-base * .875 !default;
+
+$ms-font-base: $font-size-base;
+$ms-font-lg: $font-size-lg;
+$ms-font-sm: $font-size-sm;
+
+$border-radius: 2px;
+$border-radius-sm: 2px;
+$border-radius-lg: 2px;
+
+$input-bg: transparent;
+$input-border-color: $ms-secondary-dark;
+
+$link-color: theme-color("action");
+$link-decoration: none;
+$link-hover-color: theme-color("action");
+
+// Modals
+$modal-content-border-color: transparent;  // rgba($black, .2) !default;
+$modal-content-border-width: 0; // $border-width !default;
+$modal-content-border-radius: 0; // $border-radius-lg !default;
+
+// Animate-sass override
+// By default, some sass mixins are deactivated
+// Activate <class> where class is an Animate.css class name
+// (see documentation https://github.com/tgdev/animate-sass)
+$use-fade-in: true; // Activate all 'fadeIn*' classes
+$use-fade-out: true; // Activate all 'fadeOut*' classes

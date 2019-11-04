@@ -1,0 +1,13 @@
+<!-- 
+    WARNING : Don't forget the 'id' attribute to target the ViewModel 
+    outside itself and from window context
+    ex: ko.dataFor($('#navbar_plugin_threedpc_ui_button')[0]).switchUi()
+-->
+<a title="{{ _('Switch to 3DPC UI')|edq }}" 
+   class="pull-right" 
+   href="javascript:void(0)" 
+   id="navbar_plugin_threedpc_ui_button"
+   data-bind="click: function () { switchUi(); }"
+>
+    {{ _('Switch to 3DPC UI')|edq }} <i class="fa fa-exchange"></i>
+</a>

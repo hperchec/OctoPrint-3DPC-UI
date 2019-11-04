@@ -1,0 +1,323 @@
+// Variables
+@import "_variables.scss"; // Variables file is auto-injected in all .scss child files (see webpack base configuration)
+
+@font-face {
+    font-family: "FORCED SQUARE";
+    src: url("assets/fonts/FORCED_SQUARE.ttf") format("opentype");
+}
+
+// Global
+* {
+    box-sizing: border-box;
+}
+
+// Import nested bootstrap styles directly into nested specific elements
+// First, target <html> element with 'threedpc_ui' and 'threedpc_ui_theme' classes
+.threedpc_ui.threedpc_ui_theme {
+    // Then, target #threedpc_ui_container div element
+    #threedpc_ui_container {
+        // And #app div element
+        // Consider it as the <body> element
+        #app {
+            // Inject our dependencies here (bootstrap, bootstrap-vue)
+            // to declare it with a big css 'weight'
+            // -> I didn't find any other solution 
+            // -> here to 'isolate' 3DPC User interface css context
+            @import '~bootstrap/scss/bootstrap';
+            @import '~bootstrap-vue/src/index.scss';
+            // Include animate.css with the animate-sass package to isolate 
+            // from the octoprint context
+            @import '~animate-sass/_animate.scss';
+            // 
+            @function calc_ms($value) {
+                @return calc( (#{$base-duration} / 1000) * #{$value} );
+            }
+            .delay-100ms { @include animate-prefixer(animation-delay, calc_ms(100) ); }
+            .delay-200ms { @include animate-prefixer(animation-delay, calc_ms(200) ); }
+            .delay-300ms { @include animate-prefixer(animation-delay, calc_ms(300) ); }
+            .delay-400ms { @include animate-prefixer(animation-delay, calc_ms(400) ); }
+            .delay-500ms { @include animate-prefixer(animation-delay, calc_ms(500) ); }
+            .delay-600ms { @include animate-prefixer(animation-delay, calc_ms(600) ); }
+            .delay-700ms { @include animate-prefixer(animation-delay, calc_ms(600) ); }
+            .delay-800ms { @include animate-prefixer(animation-delay, calc_ms(800) ); }
+            .delay-900ms { @include animate-prefixer(animation-delay, calc_ms(900) ); }
+            .delay-1000ms { @include animate-prefixer(animation-delay, calc_ms(1000) ); }
+            .delay-1100ms { @include animate-prefixer(animation-delay, calc_ms(1100) ); }
+            .delay-1200ms { @include animate-prefixer(animation-delay, calc_ms(1200) ); }
+            .delay-1300ms { @include animate-prefixer(animation-delay, calc_ms(1300) ); }
+            .delay-1400ms { @include animate-prefixer(animation-delay, calc_ms(1400) ); }
+
+            // Custom rules for #app div
+            font-family: $helvetica-font;
+            color: $ms-light;
+            background-color: $ms-dark;
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            // To remove focus & active shadow on buttons and input
+            .form-control.active.focus,
+            .form-control.active:focus,
+            .form-control.focus,
+            .form-control.focus:active,
+            .form-control:active:focus,
+            .form-control:focus,
+            .btn.active.focus,
+            .btn.active:focus,
+            .btn.focus,
+            .btn.focus:active,
+            .btn:active:focus,
+            .btn:focus {
+                outline: 0 !important;
+                outline-offset: 0  !important;
+                background-image: none  !important;
+                -webkit-box-shadow: none !important;
+                box-shadow: none  !important;
+            }
+
+            .btn {
+                border: none;
+                background-color: $ms-blue;
+                color: $ms-dark;
+                overflow: hidden;
+                border-radius: 3px;
+            }
+            .btn:hover {
+                border: none;
+                background-color: #6196AB;
+                color: $ms-dark;
+            }
+
+            /* Home */
+
+            #home_container {
+                padding: 0;
+                width: 100%;
+                height: 100%;
+
+                #home_bg_animation_container {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    #home_bg_animation_canvas {
+                        // position: absolute;
+                        // top: 0;
+                        // left: 0;
+                    }
+                }
+
+                #home_black_ellipse_container {
+                    position: absolute;
+                    z-index: 2;
+                    width: 100%;
+                    height: 100%;
+
+                    #home_black_ellipse {
+                        position: absolute;
+                        top: 150px; // (600px / 2) - (300px / 2)
+                        left: 362px; // (1024px / 2) - (300px / 2)
+                        width: 300px;
+                        height: 300px;
+                    }
+                }
+
+                #home_canvas_container {
+                    position: absolute;
+                    z-index: 3;
+                    top: 200px; // (600px / 2) - (200px / 2)
+                    left: 412px; // (1024px / 2) - (200px / 2)
+                    width: 200px;
+                    height: 200px;
+                    -webkit-animation:spin 4s linear infinite;
+                    -moz-animation:spin 4s linear infinite;
+                    animation:spin 4s linear infinite;
+
+                    @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+                    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+                    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+                    #home_canvas {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                #home_buttons_container {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(19, 19, 19, 0.4);
+                    z-index: 4;
+                    
+                    .home_button_container {
+                        padding: 10px $p-2;
+                        position: absolute;
+                        display: block;
+                        width: 280px;
+                        .home_button {
+                            width: 100%;
+                        }
+                    }
+                    .home_button_container::before {
+                        content: "[";
+                        color:rgb(135, 206, 235);
+                        font-size: 32px;
+                        position: absolute;
+                        top: 16px;
+                        left: -2px;
+                    }
+                    .home_button_container::after {
+                        content: "]";
+                        color:rgb(135, 206, 235);
+                        font-size: 32px;
+                        position: absolute;
+                        top: 16px;
+                        right: -2px;
+                    }
+                    .home_button_container_1 {
+                        top: 60px;
+                        left: 150px;
+                    }
+                    .home_button_container_2 {
+                        top: 130px;
+                        left: 120px;
+                    }
+                    .home_button_container_3 {
+                        top: 200px;
+                        left: 90px;
+                    }
+                    .home_button_container_4 {
+                        top: 270px;
+                        left: 60px;
+                    }
+                    .home_button_container_5 {
+                        top: 340px;
+                        left: 90px;
+                    }
+                    .home_button_container_6 {
+                        top: 410px;
+                        left: 120px;
+                    }
+                    .home_button_container_7 {
+                        top: 480px;
+                        left: 150px;
+                    }
+                }
+
+                #home_rightbar {
+                    position: absolute;
+                    z-index: 4;
+                    width: 370px;
+                    height: 480px;
+                    top: 60px;
+                    right: 60px;
+
+                    #home_rightbar_border {
+                        position: absolute;
+                        width: 370px;
+                        height: 480px;
+                        top: 0;
+                        right: 0;
+                        background-color: $ms-blue;
+                        clip-path: polygon(0px 0px, 370px 0px, 370px 480px, 52px 480px, 52px 192px, 0px 112px, 0px 4px, 4px 4px, 4px 110px, 56px 190px, 56px 476px, 366px 476px, 366px 4px, 0px 4px, 0px 0px);
+                    }
+
+                    #home_rightbar_content {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background-color: $ms-dark;
+                        height: 480px;
+                        width: 370px;
+                        padding: 10px;
+                        clip-path: polygon(10px 10px, 10px 109px, 62px 189px, 62px 470px, 360px 470px, 360px 10px);
+
+                        #home_rightbar_clock {
+                            position: absolute;
+                            top: 24px;
+                            right: 24px;
+                            font-family: "FORCED SQUARE";
+                            font-size: 96px;
+                            color: $ms-blue;
+                            line-height: 67px;
+                        }
+
+                        #home_rightbar_topline {
+                            border: none;
+                            position: relative;
+                            height: 2px;
+                            width: 80%;
+                            background-color: $ms-blue;
+                            padding: 0;
+                            margin: 0 auto;
+                            top: 100px;
+                        }
+                    }
+                }
+
+                #home_window_container {
+                    position: absolute;
+                    z-index: 5;
+                    top: 0;
+                    left: 0;
+                    width: 1024px;
+                    height: 600px;
+                    padding: 18px;
+
+                    #home_window_container_return_button {
+                        position: absolute !important;
+                        top: 10px !important;
+                        left: 10px !important;
+                        width: 104px;
+                        height: 104px;
+                        background-color: $ms-blue;
+                        clip-path: polygon(0px 0px, 104px 0px, 0px 104px);
+                        cursor: pointer;
+
+                        span {
+                            position: absolute;
+                            top: 8px;
+                            left: 2px;
+                            font-size: 40px;
+                            color: $ms-dark;
+                        }
+                    }
+
+                    #home_window_container_return_button:hover {
+                        background-color: #6196AB;
+                    }
+
+                    #home_window_container_border {
+                        position: absolute;
+                        display: block;
+                        top: 0;
+                        left: 0;
+                        width: 1024px;
+                        height: 600px;
+                        background-color: $ms-blue;
+                        clip-path: polygon(10px 120px, 10px 590px, 1014px 590px, 1014px 10px, 120px 10px, 120px 14px, 1010px 14px, 1010px 586px, 14px 586px, 14px 122px, 122px 14px, 120px 10px);
+                    }
+
+                    #home_window_content {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 1024px;
+                        height: 600px;
+                        background-color: $ms-dark;
+                        clip-path: polygon(124px 18px, 1006px 18px, 1006px 582px, 18px 582px, 18px 124px);
+
+                        .home_window {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+
+            /* End custom CSS */
+        }
+    }
+}

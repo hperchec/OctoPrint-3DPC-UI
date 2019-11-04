@@ -1,0 +1,35 @@
+/* 
+    This is the global container 
+    of the 3DPC User Interface
+    Jinja template inject a <div> element
+    with the attribute 'id' to 'threedpc_ui_container'
+    (by the 'generic' octoprint view model)
+    See '/templates/threedpc_ui.jinja2' file
+*/
+#threedpc_ui_container {
+    all: unset; /* Unset all to delete parent properties */
+    width: 100%; /* Full screen */
+    height: 100%;
+    position: fixed; /* Not supposed to be globally scrollable */
+    top: 0; /* Cover default interface */
+    left: 0;
+}
+
+/* 
+    Unset all child properties
+    !IMPORTANT! to apply our own style
+    independently to global shylesheets context
+    Blacklist some selectors that does not conflict with default UI as:
+       #threedpc_ui_container :not(<some-selector>), 
+       #threedpc_ui_container :not(<some-selector2>),
+       ... 
+*/
+#threedpc_ui_container :not(.ripple-container),
+#threedpc_ui_container :not(.ripple-container *) {
+    all: unset;
+}
+
+/* 
+    That's all here 
+    All our styles are managed by our Vue JS application    
+*/
