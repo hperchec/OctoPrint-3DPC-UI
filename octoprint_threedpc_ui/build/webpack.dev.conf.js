@@ -15,7 +15,10 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
+    rules: utils.styleLoaders({ 
+      sourceMap: config.dev.cssSourceMap, 
+      usePostCSS: true 
+    })
   },
   // cheap-module-eval-source-map is faster for development
   devtool: config.dev.devtool,
@@ -43,11 +46,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll,
     },
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-    }
+    // Add some headers from configuration
+    headers: config.dev.headers
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -58,17 +58,21 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      title: 'Custom Template',
-      filename: 'index.html',
-      template: 'templates/webpack_template.jinja2',
-      inject: false
+      // title: 'Custom Template', // Don't need title 
+      // (Webpack Dev Server) Example: accessible at 'http://HOST:PORT/index.html'
+      filename: config.dev.htmlWebpackPlugin.filename,
+      // Based on our custom template
+      template: config.dev.htmlWebpackPlugin.template,
+      // inject: false // to custom injections
     }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../static'),
+        // Take files from (path) ...
+        from: config.dev.copyStaticFrom,
+        // ... to serve it at http://HOST:PORT/<to>/
         to: config.dev.assetsSubDirectory,
-        ignore: ['.*']
+        ignore: ['.*'] // Ignore all hidden files
       }
     ])
   ]

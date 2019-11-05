@@ -1,0 +1,54 @@
+<!--
+
+    src/index.dev.ejs
+
+    This file is a HTML simple page template to use for dev
+
+-->
+
+<html>
+
+  <head>
+    <link rel="stylesheet" href="/batard"/>
+  </head>
+
+  <body>
+
+    <!-- Our plugin 'generic' template is injected into the global OctoPrint HTML container -->
+
+    <div id="threedpc_ui_container">
+        <!--
+            The <div> below will be replaced by App component. 
+            Vue vill mount the global component on the <div> identified by '#threedpc_ui_app'
+            See src/main.js 
+        -->
+        <div id="threedpc_ui_app"></div>
+    </div>
+
+    <%
+        // Here we inject the different js sources compiled by Webpack
+
+        // Get public path (ex: 'http://localhost:8080/')
+        // 'htmlWebpackPlugin' is an available Object variable
+        // forwarded by the Webpack plugin (HtmlWebpackPlugin)
+        // see plugin documentation: https://webpack.js.org/plugins/html-webpack-plugin/
+        var publicPath = htmlWebpackPlugin.files.publicPath
+        // HtmlWebpackPlugin Object 'files.*' properties contain the complete url for each file
+        htmlWebpackPlugin.files.js.forEach((jsFile) => {
+            // Extract only file name from complete url
+            let initialFileName = jsFile.substr(publicPath.length)
+            // 
+            // let compiledFileName = compilation.assets[initialFileName]
+            %>
+            <p><%= initialFileName %></p>
+            <%
+        })
+    %>
+
+    <script type="text/javascript" src="<%= process.env.APP_SCRIPT_URL %>"></script>
+
+    <p><%= htmlWebpackPlugin.files.js.toString() %></p>
+    <p><%= compilation.assets['app.js'].source() %></p>
+
+  </body>
+</html>

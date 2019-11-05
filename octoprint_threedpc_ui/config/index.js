@@ -1,5 +1,5 @@
 'use strict'
-// Template version: 1.3.1
+// Based on vuejs webpack template (v1.3.1) 
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
@@ -7,15 +7,33 @@ const path = require('path')
 module.exports = {
   dev: {
 
+    // HtmlWebpackPlugin options
+    htmlWebpackPlugin: {
+      // Filename to serve via Webpack Dev Server
+      filename: 'index.html',
+      // Path to our custom template
+      template: 'src/index.dev.ejs'
+    },
+
     // Paths
+    copyStaticFrom: path.resolve(__dirname, '../static'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: 'http://localhost:8080/',
+    // Serve assets files to /
+    assetsPublicPath: '/',
     proxyTable: {},
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    host: 'localhost', // overwritted by .env files (config/*.env.js)
+    port: 8080, // If port is in use, a free one will be determined. overwritted by .env files
+
+    // Allow Cross Origin requests headers
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+    },
+
+    autoOpenBrowser: false, // No browser auto-opening
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
@@ -46,6 +64,14 @@ module.exports = {
   build: {
     // Template for index.html
     // index: path.resolve(__dirname, '../dist/index.html'),
+
+    // Entries
+    entries: [
+      { app: './src/main.js' } // Compiled as '<propertyName>.js' (here: 'app.js')
+    ],
+
+    // Path to our custom template
+    customTemplate: 'src/index.ejs',
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
