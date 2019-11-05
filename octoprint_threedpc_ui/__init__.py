@@ -34,10 +34,8 @@ class ThreedpcUiPlugin(octoprint.plugin.StartupPlugin,
 		# Define your plugin's asset files to automatically include in the
 		# core UI here.
 		return dict(
-			js=["js/3dpc_ui.js"],
-			css=["css/3dpc_ui.css"]
-			# No less here -> use sass (see src/scss/* files)
-			# less=["less/3dpc_ui.less"]
+			js=["js/plugin.js"],
+			css=["css/plugin.css"]
 		)
 
 	##~~ Softwareupdate hook

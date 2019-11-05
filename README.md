@@ -5,6 +5,10 @@
 - 3DPC Project : [https://herve-perchec.fr/projects/3dpc](https://herve-perchec.fr/projects/3dpc)
 - OctoPrint : [https://github.com/foosel/OctoPrint](https://github.com/foosel/OctoPrint)
 
+This plugin adds a button in the navbar of the octoprint default interface that enables you to switch to the totally independant 3DPC User Interface.
+
+![screenshot](extras/screenshot_button.png)
+
 ## Setup
 
 Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)

@@ -58,8 +58,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
+      title: 'Custom Template',
       filename: 'index.html',
-      template: 'src/index.html',
+      template: 'templates/webpack_template.jinja2',
       inject: false
     }),
     // copy custom static assets
@@ -81,6 +82,7 @@ module.exports = new Promise((resolve, reject) => {
     } else {
       // publish the new Port, necessary for e2e tests
       process.env.PORT = port
+      process.env.HOST = devWebpackConfig.devServer.host
       // add port to devServer config
       devWebpackConfig.devServer.port = port
 

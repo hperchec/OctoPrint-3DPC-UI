@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: "FORCED SQUARE";
-    src: url("assets/fonts/FORCED_SQUARE.ttf") format("opentype");
+    src: url("../static/fonts/FORCED_SQUARE.ttf") format("opentype");
 }
 
 // Global
@@ -81,6 +81,7 @@
                 color: $ms-dark;
                 overflow: hidden;
                 border-radius: 3px;
+                background-image: none;
             }
             .btn:hover {
                 border: none;
@@ -245,13 +246,13 @@
 
                         #home_rightbar_topline {
                             border: none;
-                            position: relative;
+                            position: absolute;
                             height: 2px;
-                            width: 80%;
+                            width: 296px;
                             background-color: $ms-blue;
                             padding: 0;
-                            margin: 0 auto;
-                            top: 100px;
+                            margin: 0 37px;
+                            top: 110px;
                         }
                     }
                 }

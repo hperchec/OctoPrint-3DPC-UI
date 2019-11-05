@@ -4,7 +4,7 @@
     <HomeBGAnimation></HomeBGAnimation>
 
     <div id="home_black_ellipse_container">
-      <img id="home_black_ellipse" src="../../assets/black_ellipse_fade2.png"/>
+      <img id="home_black_ellipse" src="../../../static/img/black_ellipse_fade.png"/>
     </div>
 
     <div id="home_canvas_container">

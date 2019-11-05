@@ -11,8 +11,8 @@
       <div id="home_rightbar_content">
 
         <div id="home_rightbar_date_container">
-          <span>{{  }}</span>
-          <span>{{  }}</span>
+          <span>{{ dateData.getDay() }}</span>
+          <span>{{ dateData.getMonth() + ' ' + dateData.getYear() }}</span>
         </div>
 
         <div id="home_rightbar_clock_container">
@@ -32,8 +32,7 @@ export default {
   name: 'HomeRightbar',
   data () {
     return {
-      dayData: new Date().getDay(),
-      monthYearData: new Date().getMonth() + new Date().getYear(),
+      dateData: new Date(),
       clockData: null,
       clockInterval: null
     }
