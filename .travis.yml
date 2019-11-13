@@ -6,4 +6,5 @@ cache:
     - node_modules
 script:
   - cd octoprint_threedpc_ui
+  - npm i -g jest
   - npm run test
