@@ -52,11 +52,6 @@ export default {
   },
   data () {
     return {}
-  },
-  watch: {
-    display: function (to, from) {
-      console.log('Display : ', this.display)
-    }
   }
 }
 </script>
