@@ -3,6 +3,8 @@ import Home from '@/components/home/Home'
 
 var vm
 
+// TESTSTSTSTTST
+
 describe('Home.vue', () => {
   const Constructor = Vue.extend(Home)
   it('should render without crashing', () => {
