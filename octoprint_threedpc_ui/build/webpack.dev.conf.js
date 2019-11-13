@@ -10,8 +10,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
-const HOST = process.env.HOST
-const PORT = process.env.PORT && Number(process.env.PORT)
+// const HOST = process.env.HOST || config.dev.host
+// const PORT = (process.env.PORT && Number(process.env.PORT)) || config.dev.port
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -34,8 +34,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     hot: true,
     contentBase: false, // since we use CopyWebpackPlugin.
     compress: true,
-    host: HOST || config.dev.host,
-    port: PORT || config.dev.port,
+    host: config.dev.host,
+    port: config.dev.port,
     open: config.dev.autoOpenBrowser,
     overlay: config.dev.errorOverlay
       ? { warnings: false, errors: true }
@@ -63,7 +63,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       filename: config.dev.htmlWebpackPlugin.filename,
       // Based on our custom template
       template: config.dev.htmlWebpackPlugin.template,
-      // inject: false // to custom injections
+      inject: false // to custom injections
     }),
     // copy custom static assets
     new CopyWebpackPlugin([

@@ -9,7 +9,9 @@ exports.assetsPath = function (_path) {
     ? config.build.assetsSubDirectory
     : config.dev.assetsSubDirectory
 
-  return path.posix.join(assetsSubDirectory, _path)
+  // return path.posix.join(assetsSubDirectory, _path)
+  // return 'http://' + process.env.HOST + ':' + process.env.PORT + '/' + path.posix.join(assetsSubDirectory, _path)
+  return 'http://localhost:8080/' + path.posix.join(assetsSubDirectory, _path)
 }
 
 exports.cssLoaders = function (options) {

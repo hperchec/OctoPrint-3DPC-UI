@@ -53,8 +53,10 @@ export default {
   data () {
     return {}
   },
-  methods: {
-    // to do
+  watch: {
+    display: function (to, from) {
+      console.log('Display : ', this.display)
+    }
   }
 }
 </script>

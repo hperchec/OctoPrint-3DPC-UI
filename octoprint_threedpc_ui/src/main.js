@@ -4,6 +4,8 @@
 // Dependencies
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
+// eslint-disable-next-line
+import $ from 'jquery'
 // Directives
 import Ripple from 'vue-ripple-directive'
 // Components
@@ -20,10 +22,6 @@ Vue.directive('ripple', Ripple)
 // Hide production message in the web browser console
 Vue.config.productionTip = false
 
-const gettext = function (id) {
-  return id
-}
-
 // Apply our custom 'threedpc_ui' and 'threedpc_ui_theme' classes to <html> element
 // to bypass other plugins/stylesheets in the context of
 // the 3DPC User Interface
@@ -37,5 +35,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-
-gettext('toto')

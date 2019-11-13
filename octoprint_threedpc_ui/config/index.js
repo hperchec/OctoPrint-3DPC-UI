@@ -18,13 +18,13 @@ module.exports = {
     // Paths
     copyStaticFrom: path.resolve(__dirname, '../static'),
     assetsSubDirectory: 'static',
-    // Serve assets files to /
-    assetsPublicPath: '/',
+    // Serve assets files to
+    assetsPublicPath: '',
     proxyTable: {},
 
     // Various Dev Server settings
-    host: 'localhost', // overwritted by .env files (config/*.env.js)
-    port: 8080, // If port is in use, a free one will be determined. overwritted by .env files
+    host: process.env.HOST || 'localhost', // overwritted by .env files (config/*.env.js)
+    port: (process.env.PORT && Number(process.env.PORT)) || 8080, // If port is in use, a free one will be determined. overwritted by .env files
 
     // Allow Cross Origin requests headers
     headers: {
@@ -62,20 +62,23 @@ module.exports = {
   },
 
   build: {
-    // Template for index.html
-    // index: path.resolve(__dirname, '../dist/index.html'),
+
+    // HtmlWebpackPlugin options
+    htmlWebpackPlugin: {
+      // Output 'index' file
+      filename: path.resolve(__dirname, '../templates/threedpc_ui.jinja2'),
+      // Path to our custom template
+      template: 'src/index.ejs'
+    },
 
     // Entries
     entries: [
       { app: './src/main.js' } // Compiled as '<propertyName>.js' (here: 'app.js')
     ],
 
-    // Path to our custom template
-    customTemplate: 'src/index.ejs',
-
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    assetsRoot: path.resolve(__dirname, '../'),
+    assetsSubDirectory: 'static/js',
     assetsPublicPath: '/',
 
     /**
