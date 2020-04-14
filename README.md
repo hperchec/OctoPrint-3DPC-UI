@@ -1,6 +1,6 @@
 # OctoPrint-3DPC-UI
 
-[![Build Status](https://travis-ci.com/herveperchec/OctoPrint-3DPC-UI.svg?branch=master)](https://travis-ci.com/herveperchec/OctoPrint-3DPC-UI)
+[![Build Status](https://travis-ci.com/hperchec/OctoPrint-3DPC-UI.svg?branch=master)](https://travis-ci.com/hperchec/OctoPrint-3DPC-UI)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 3DPC Project - User Interface Plugin for OctoPrint
