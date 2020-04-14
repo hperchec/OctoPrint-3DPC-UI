@@ -5,11 +5,14 @@
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 // eslint-disable-next-line
-import $ from 'jquery'
+import jQuery from 'jquery'
 // Directives
 import Ripple from 'vue-ripple-directive'
 // Components
 import App from './App'
+
+// jQuery
+window.$ = jQuery
 
 // Plugins utilisation
 Vue.use(BootstrapVue)

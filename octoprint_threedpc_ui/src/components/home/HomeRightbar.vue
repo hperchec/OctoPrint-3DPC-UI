@@ -45,11 +45,8 @@ export default {
   methods: {
     setClockData: function () {
       let date = new Date()
-      let minutes = date.getMinutes()
-      if (minutes < 10) {
-        minutes = '0' + minutes
-      }
-      this.clockData = date.getHours() + ':' + minutes
+      let minutes = String(date.getMinutes())
+      this.clockData = date.getHours() + ':' + minutes.padStart(2, '0')
     },
     init: function () {
       // Initialize

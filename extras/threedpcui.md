@@ -7,8 +7,7 @@ description: 3DPC Project - User Interface Plugin for OctoPrint
 author: Hervé PERCHEC
 license: AGPLv3
 
-# TODO
-date: today's date in format YYYY-MM-DD, e.g. 2015-04-21
+date: 2019-12-07
 
 homepage: https://github.com/herveperchec/OctoPrint-3DPC-UI
 source: https://github.com/herveperchec/OctoPrint-3DPC-UI
@@ -19,13 +18,9 @@ archive: https://github.com/herveperchec/OctoPrint-3DPC-UI/archive/master.zip
 # library versions not yet published on PyPi. SHOULD ONLY BE USED IF THERE IS NO OTHER OPTION!
 #follow_dependency_links: false
 
-# TODO
 tags:
-- a list
-- of tags
-- that apply
-- to your plugin
-- (take a look at the existing plugins for what makes sense here)
+- 3dpc
+- interface
 
 # TODO
 screenshots:

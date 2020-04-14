@@ -15,7 +15,7 @@ describe('HomeButtons.vue', () => {
   // All other features tests
   //
   it('prop "buttons" should return an empty array by default', () => {
-    expect(vm.$props.buttons.default())
-      .toBe([])
+    expect(vm.$props.buttons)
+      .toEqual([])
   })
 })

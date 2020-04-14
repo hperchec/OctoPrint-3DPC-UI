@@ -10,6 +10,15 @@
 </template>
 
 <script>
+// Declare outside the component
+/**
+ * Default click function
+ * @return {boolean} Return true
+ */
+const defaultClick = () => {
+  return true
+}
+// Export Vue Component
 export default {
   name: 'HomeButton',
   props: {
@@ -19,21 +28,12 @@ export default {
     click: {
       type: Function,
       default () {
-        return this.defaultClick
+        return defaultClick
       }
     }
   },
   data () {
     return {}
-  },
-  methods: {
-    /**
-     * Default click function
-     * @return {boolean} Return true
-     */
-    defaultClick: () => {
-      return true
-    }
   }
 }
 </script>
